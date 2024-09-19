@@ -106,7 +106,7 @@ async function submitNewStory(evt) {
   const title = $("#create-title").val();
   const url = $("#create-url").val();
   const author = $("#create-author").val();
-  const username = currentUser.username
+  const username = currentUser.username;
   const storyData = { title, url, author, username };
 
   const story = await storyList.addStory(currentUser, storyData);
@@ -174,7 +174,7 @@ async function toggleStoryFavorite(evt) {
   const $tgt = $(evt.target);
   const $closestLi = $tgt.closest("li");
   const storyId = $closestLi.attr("id");
-  const story = storyList.stories.find(s => s.storyId === storyId);
+  const story = storyList.stories.find((s) => s.storyId === storyId);
 
   // see if the item is already favorited (checking by presence of star)
   if ($tgt.hasClass("fas")) {

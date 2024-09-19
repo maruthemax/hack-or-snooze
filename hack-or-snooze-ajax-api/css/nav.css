@@ -1,11 +1,13 @@
 /* Navigation bar */
 
+/* Basic styling for the navigation bar */
 nav {
   display: flex;
-  background-color: #ff6600;
+  justify-content: space-between;
   align-items: center;
-  padding: 5px 20px;
-  border-radius: 3px 3px 0 0;
+  background-color: #ff6600;
+  padding: 10px;
+  color: white;
 }
 
 .navbar-brand {
@@ -14,10 +16,55 @@ nav {
 
 .nav-link {
   font-size: 0.85rem;
-  margin: 0 3px;
+  margin: 0 20px;
 }
 
 .nav-right {
   margin-left: auto;
   text-align: right;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 0 10px;
+}
+
+.navbar a:hover {
+  color: lightgray;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+}
+
+.nav-user {
+  display: flex;
+  align-items: center;
+}
+
+.nav-user #nav-logout {
+  margin-left: 10px;
+  font-size: 0.85rem;
+  color: white;
+}
+
+.nav-user #nav-logout:hover {
+  color: lightgray;
+}
+
+#nav-user-profile {
+  font-size: 0.85rem;
+  color: white;
+  margin-right: 5px;
+}
+
+#nav-user-profile:empty {
+  display: none;
+}
+
+.navbar a:first-child {
+  padding-left: 0;
 }

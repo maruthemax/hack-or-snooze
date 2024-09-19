@@ -8,8 +8,7 @@ const $storiesLoadingMsg = $("#stories-loading-msg");
 const $allStoriesList = $("#all-stories-list");
 const $favoritedStories = $("#favorited-stories");
 const $ownStories = $("#my-stories");
-const $storiesContainer = $("#stories-container")
-
+const $storiesContainer = $("#stories-container");
 
 // selector that finds all three story lists
 const $storiesLists = $(".stories-list");
@@ -37,9 +36,9 @@ function hidePageComponents() {
     $submitForm,
     $loginForm,
     $signupForm,
-    $userProfile
+    $userProfile,
   ];
-  components.forEach(c => c.hide());
+  components.forEach((c) => c.hide());
 }
 
 /** Overall function to kick off the app. */
@@ -55,10 +54,8 @@ async function start() {
   if (currentUser) updateUIOnUserLogin();
 }
 
-
-
 // Infinite scroll implementation to load more stories
-$(window).on("scroll", async function() {
+$(window).on("scroll", async function () {
   if ($(window).scrollTop() + $(window).height() >= $(document).height() - 10) {
     await loadMoreStories(); // Fetch more stories from the server
   }
@@ -66,8 +63,8 @@ $(window).on("scroll", async function() {
 
 // Function to load more stories
 async function loadMoreStories() {
-  const newStories = await storyList.getMoreStories();  // Add pagination support
-  newStories.forEach(story => {
+  const newStories = await storyList.getMoreStories(); // Add pagination support
+  newStories.forEach((story) => {
     const $story = generateStoryMarkup(story);
     $allStoriesList.append($story);
   });
@@ -75,8 +72,10 @@ async function loadMoreStories() {
 
 // Once the DOM is entirely loaded, begin the app
 
-console.warn("HEY STUDENT: This program sends many debug messages to" +
-  " the console. If you don't see the message 'start' below this, you're not" +
-  " seeing those helpful debug messages. In your browser console, click on" +
-  " menu 'Default Levels' and add Verbose");
+console.warn(
+  "HEY STUDENT: This program sends many debug messages to" +
+    " the console. If you don't see the message 'start' below this, you're not" +
+    " seeing those helpful debug messages. In your browser console, click on" +
+    " menu 'Default Levels' and add Verbose"
+);
 $(start);

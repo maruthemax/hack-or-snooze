@@ -22,16 +22,13 @@ async function login(evt) {
   try {
     currentUser = await User.login(username, password);
     $loginForm.trigger("reset");
-      saveUserCredentialsInLocalStorage();
+    saveUserCredentialsInLocalStorage();
     updateUIOnUserLogin();
   } catch (err) {
     alert("Login failed: Invalid username or password.");
     console.error("Login failed:", err);
   }
-  
 }
-
-
 
 /** Handle signup form submission. */
 
@@ -54,10 +51,7 @@ async function signup(evt) {
     alert("Signup failed: Username already taken.");
     console.error("Signup failed:", err);
   }
- 
 }
-
-
 
 /** Handle click of logout button
  *
@@ -69,8 +63,6 @@ function logout(evt) {
   localStorage.clear();
   location.reload();
 }
-
-
 
 /******************************************************************************
  * Storing/recalling previously-logged-in-user with localStorage
@@ -92,7 +84,6 @@ async function checkForRememberedUser() {
   } catch {
     console.error("Login via stored credentials failed", err);
   }
-  
 }
 
 /** Sync current user information to localStorage.
@@ -123,12 +114,11 @@ function saveUserCredentialsInLocalStorage() {
 function updateUIOnUserLogin() {
   console.debug("updateUIOnUserLogin");
   hidePageComponents();
-  
+
   $allStoriesList.show();
 
   updateNavOnLogin();
 }
-
 
 // Handle profile update form submission
 async function updateProfile(evt) {
@@ -147,8 +137,6 @@ async function updateProfile(evt) {
 
 // Event listener for updating profile
 $("#profile-form").on("submit", updateProfile);
-
-
 
 $loginForm.on("submit", login);
 $signupForm.on("submit", signup);
